@@ -322,8 +322,6 @@ jQuery(document).ready(function(){
 				}
 				}
 			};
-			theme_tm_cursor()	
-		const observer = lozad();
-		observer.observe();
+			theme_tm_cursor()
 
 }); // end document ready function
