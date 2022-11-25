@@ -323,5 +323,7 @@ jQuery(document).ready(function(){
 				}
 			};
 			theme_tm_cursor()	
-		
+		const observer = lozad();
+		observer.observe();
+
 }); // end document ready function
