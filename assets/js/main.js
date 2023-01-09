@@ -267,7 +267,7 @@ jQuery(document).ready(function(){
 					$(formMessages).addClass('success');
 
 					// Set the message text.
-					$(formMessages).text(response);
+					$(formMessages).text("Your Form Was Submitted Successfully. We Will Get Back To Soon!");
 
 					// Clear the form.
 					$('#contact-form input,#contact-form textarea').val('');
