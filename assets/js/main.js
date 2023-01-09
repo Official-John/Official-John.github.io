@@ -259,6 +259,11 @@ jQuery(document).ready(function(){
 				$.ajax({
 					type: 'POST',
 					url: $(form).attr('action'),
+					async: true,
+					headers: {
+						      "accept": "application/json",
+						      "Access-Control-Allow-Origin":"*"
+						  },
 					crossDomain: true,
 					data: formData
 				})
