@@ -341,7 +341,7 @@ jQuery(document).ready(function(){
 		visibleOnly: true,
 		onError: function(element) {
 		    console.log('error loading ' + element.data('src'));
-		}
+		},
 		beforeLoad: function(element) {
 		    // called before an elements gets handled
 		},
