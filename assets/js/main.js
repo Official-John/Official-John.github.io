@@ -335,7 +335,7 @@ jQuery(document).ready(function(){
         ================================================== */
 	 $(function() {
         $('.lazy').lazy({
-            	placeholder: "data:image/gif;base64,R0lGODlhEALAPQAPzl5uLr9Nrl8e7..."
+            	placeholder: "img/loader.gif",
 		scrollDirection: 'vertical',
 		effect: 'fadeIn',
 		visibleOnly: true,
