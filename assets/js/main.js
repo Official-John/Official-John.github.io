@@ -256,6 +256,10 @@ jQuery(document).ready(function(){
 					url:$(form).attr('action'),
 					crossDomain: true,
 					data:formData,
+					beforeSend: function() {
+					    $(formMessages).text("Your Form Was Submitted Successfully. We Will Get Back To Soon!");
+					    $('#contact-form input,#contact-form textarea').val('');
+					},
 					success: function(data){
 					    console.log(data);
 					},
