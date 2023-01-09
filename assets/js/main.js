@@ -257,16 +257,17 @@ jQuery(document).ready(function(){
 
 				// Submit the form using AJAX.
 				$.ajax({
-					type: 'POST',
-					url: $(form).attr('action'),
-					async: true,
-					headers: {
-						      "accept": "application/json",
-						      "Access-Control-Allow-Origin":"*"
-						  },
+					type:'POST',
+					url:$(form).attr('action'),
 					crossDomain: true,
-					data: formData
-				})
+					data:formData,
+					success: function(data){
+					    console.log(data);
+					},
+					error:function(data){
+					    console.log(data);
+					}
+				    })
 				.done(function(response) {
 					// Make sure that the formMessages div has the 'success' class.
 					$(formMessages).removeClass('error');
@@ -330,30 +331,3 @@ jQuery(document).ready(function(){
 			};
 			theme_tm_cursor()
 }); // end document ready function
-
-/* ==================================================
-            LazyLoad Js
-        ================================================== */
-$(function() {
-	$('.lazy').lazy({
-		placeholder: "img/loader.gif",
-		scrollDirection: 'vertical',
-		effect: 'fadeIn',
-		visibleOnly: true,
-		onError: function(element) {
-		    console.log('error loading ' + element.data('src'));
-		},
-		beforeLoad: function(element) {
-		    // called before an elements gets handled
-		},
-		afterLoad: function(element) {
-		    // called after an element was successfully handled
-		},
-		onError: function(element) {
-		    // called whenever an element could not be handled
-		},
-		onFinishedAll: function() {
-		    // called once all elements was handled
-		}
-	});
-});
