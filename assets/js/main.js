@@ -330,4 +330,30 @@ jQuery(document).ready(function(){
 			};
 			theme_tm_cursor()
 
+	/* ==================================================
+            LazyLoad Js
+        ================================================== */
+	 $(function() {
+        $('.lazy').lazy({
+            	placeholder: "data:image/gif;base64,R0lGODlhEALAPQAPzl5uLr9Nrl8e7..."
+		scrollDirection: 'vertical',
+		effect: 'fadeIn',
+		visibleOnly: true,
+		onError: function(element) {
+		    console.log('error loading ' + element.data('src'));
+		}
+		beforeLoad: function(element) {
+		    // called before an elements gets handled
+		},
+		afterLoad: function(element) {
+		    // called after an element was successfully handled
+		},
+		onError: function(element) {
+		    // called whenever an element could not be handled
+		},
+		onFinishedAll: function() {
+		    // called once all elements was handled
+		}
+        });
+    });
 }); // end document ready function
