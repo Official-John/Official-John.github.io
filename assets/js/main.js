@@ -8,9 +8,6 @@
 jQuery(document).ready(function(){ 
 
 	"use strict";
-
-		$(".preloader").show().delay(5000).fadeOut();		
-
 		// Header Sticky
 		
 			$(window).scroll( function() {
