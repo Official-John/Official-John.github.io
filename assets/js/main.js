@@ -329,13 +329,14 @@ jQuery(document).ready(function(){
 				}
 			};
 			theme_tm_cursor()
+}); // end document ready function
 
-	/* ==================================================
+/* ==================================================
             LazyLoad Js
         ================================================== */
-	 $(function() {
-        $('.lazy').lazy({
-            	placeholder: "img/loader.gif",
+$(function() {
+	$('.lazy').lazy({
+		placeholder: "img/loader.gif",
 		scrollDirection: 'vertical',
 		effect: 'fadeIn',
 		visibleOnly: true,
@@ -354,6 +355,5 @@ jQuery(document).ready(function(){
 		onFinishedAll: function() {
 		    // called once all elements was handled
 		}
-        });
-    });
-}); // end document ready function
+	});
+});
