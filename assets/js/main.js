@@ -259,6 +259,7 @@ jQuery(document).ready(function(){
 				$.ajax({
 					type: 'POST',
 					url: $(form).attr('action'),
+					crossDomain: true,
 					data: formData
 				})
 				.done(function(response) {
