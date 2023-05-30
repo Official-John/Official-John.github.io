@@ -8,6 +8,31 @@
 jQuery(document).ready(function(){ 
 
 	"use strict";
+
+		// Preloader
+		$(window).on("load", function () {
+			$('.lds-ellipsis').fadeOut(); // will first fade out the loading animation
+			$('.preloader').delay(333).fadeOut('slow'); // will fade out the white DIV that covers the website.
+			$('body').delay(333);
+			injectImages();
+		});
+
+		function injectImages(){
+			let arr = ['img/portfolio/aea (1).png', 'img/portfolio/aea (2).png', 'img/portfolio/aea (3).png', 'img/portfolio/aea (4).png', 'img/portfolio/aea (5).png', 'img/portfolio/aea (6).png', 'img/portfolio/aea (7).png', 'img/portfolio/aea (8).png', 'img/portfolio/aea (9).png', 'img/portfolio/aea (10).png', 'img/portfolio/aea (11).png', 'img/portfolio/aea (12).png', 'img/portfolio/app (1).jpg', 'img/portfolio/app (2).jpg', 'img/portfolio/app (3).jpg', 'img/portfolio/app (4).jpg', 'img/portfolio/app (5).jpg', 'img/portfolio/app (6).jpg', 'img/portfolio/myweb (1).png', 'img/portfolio/myweb (2).png', 'img/portfolio/myweb (3).png', 'img/portfolio/myweb (4).png', 'img/portfolio/myweb (5).png', 'img/portfolio/myweb (6).png', 'img/portfolio/myweb (7).png', 'img/portfolio/social (1).png', 'img/portfolio/social (2).png', 'img/portfolio/social (3).png', 'img/portfolio/social (4).png', 'img/portfolio/social (5).png', 'img/portfolio/social (6).png', 'img/portfolio/social (7).png', 'img/portfolio/social (8).png', 'img/portfolio/social (9).png', 'img/portfolio/social (10).png', 'img/portfolio/social (11).png', 'img/portfolio/social (12).png', 'img/portfolio/social (13).png', 'img/portfolio/social (14).png', 'img/portfolio/social (15).png', 'img/portfolio/ai (1).jpg', 'img/portfolio/ai (2).jpg', 'img/portfolio/ai (3).jpg', 'img/portfolio/ai (4).jpg', 'img/portfolio/ai (5).jpg', 'img/portfolio/ai (6).jpg', 'img/portfolio/ai (7).jpg', 'img/portfolio/ai (8).jpg', 'img/portfolio/ai (9).jpg', 'img/portfolio/ai (10).jpg', 'img/portfolio/ai (11).jpg', 'img/portfolio/ai (12).jpg', 'img/portfolio/ai (13).jpg', 'img/portfolio/ai (14).jpg', 'img/portfolio/ai (15).jpg', 'img/portfolio/ai (16).jpg', 'img/portfolio/ai (17).jpg', 'img/portfolio/ai (18).jpg', 'img/portfolio/ai (19).jpg', 'img/portfolio/ai (20).jpg', 'img/portfolio/ai (21).jpg', 'img/portfolio/ai (22).jpg', 'img/portfolio/ai (23).jpg', 'img/portfolio/ai (24).jpg', 'img/portfolio/ai (25).jpg', 'img/portfolio/ai (26).jpg', 'img/portfolio/ai (27).jpg', 'img/portfolio/ai (28).jpg', 'img/portfolio/bio (1).png', 'img/portfolio/bio (2).png', 'img/portfolio/bio (3).png', 'img/portfolio/bio (4).png', 'img/portfolio/bio (5).png', 'img/portfolio/bio (6).png', 'img/portfolio/bio (7).png', 'img/portfolio/bio (8).png', 'img/portfolio/bio (9).png', 'img/portfolio/bio (10).png', 'img/portfolio/bio (11).png', 'img/portfolio/bio (12).png', 'img/portfolio/bio (13).png', 'img/portfolio/ecom (1).png', 'img/portfolio/ecom (2).png', 'img/portfolio/ecom (3).png', 'img/portfolio/ecom (4).png', 'img/portfolio/ecom (5).png', 'img/portfolio/ecom (6).png', 'img/portfolio/ecom (7).png', 'img/portfolio/ecom (8).png', 'img/portfolio/ecom (9).png', 'img/portfolio/ecom (10).png', 'img/portfolio/ecom (11).png', 'img/portfolio/ecom (12).png', 'img/portfolio/ecom (13).png', 'img/portfolio/ecom (14).png', 'img/portfolio/ecom (15).png', 'img/portfolio/ecom (16).png', 'img/portfolio/ecom (17).png', 'img/portfolio/ecom (18).png', 'img/portfolio/ecom (19).png', 'img/portfolio/ecom (20).png', 'img/portfolio/ecom (21).png', 'img/portfolio/ecom (22).png', 'img/portfolio/ecom (23).png', 'img/portfolio/ecom (24).png', 'img/portfolio/ecom (25).png', 'img/portfolio/ecom (26).png', 'img/portfolio/ecom (27).png', 'img/portfolio/ecom (28).png', 'img/portfolio/ecom (29).png'];
+			let div = document.getElementById("portfolio");
+			let img = div.getElementsByTagName('img');
+			let i=0;     
+			for(let el of arr){
+				img[i++].setAttribute('src', el);
+				if (el == arr.slice(-1)){
+					var tabs = $('#menu-filter li a');
+					var firstTab = tabs.first();
+					firstTab.click();
+					console.log("Done");
+				}
+			}
+		}
+
 		// Header Sticky
 		
 			$(window).scroll( function() {
@@ -28,6 +53,10 @@ jQuery(document).ready(function(){
 			  $("#navbarCollapse").scrollspy({
 				offset: 20
 			})
+
+			function disablebut(){
+				document.getElementById("Button").disabled = true;
+			}
 
 			
 			
@@ -248,28 +277,17 @@ jQuery(document).ready(function(){
 
 				// Submit the form using AJAX.
 				$.ajax({
-					type:'POST',
-					url:$(form).attr('action'),
-					crossDomain: true,
-					data:formData,
-					beforeSend: function() {
-					    $(formMessages).text("Your Form Was Submitted Successfully. We Will Get Back To Soon!");
-					    $('#contact-form input,#contact-form textarea').val('');
-					},
-					success: function(data){
-					    console.log(data);
-					},
-					error:function(data){
-					    console.log(data);
-					}
-				    })
+					type: 'POST',
+					url: $(form).attr('action'),
+					data: formData
+				})
 				.done(function(response) {
 					// Make sure that the formMessages div has the 'success' class.
 					$(formMessages).removeClass('error');
 					$(formMessages).addClass('success');
 
 					// Set the message text.
-					$(formMessages).text("Your Form Was Submitted Successfully. We Will Get Back To Soon!");
+					$(formMessages).text(response);
 
 					// Clear the form.
 					$('#contact-form input,#contact-form textarea').val('');
@@ -324,5 +342,6 @@ jQuery(document).ready(function(){
 				}
 				}
 			};
-			theme_tm_cursor()
+			theme_tm_cursor()	
+		
 }); // end document ready function
