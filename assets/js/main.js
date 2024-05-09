@@ -32,6 +32,11 @@ jQuery(document).ready(function(){
 					}
 				}
 			}
+			var tabs = $('#menu-filter li a.active');
+			var firstTab = tabs.first();
+			if(firstTab.click()){
+				console.log("Yeah2");
+			}
 		}
 
 		// Header Sticky
