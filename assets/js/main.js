@@ -27,14 +27,8 @@ jQuery(document).ready(function(){
 				if (el == arr.slice(-1)){
 					var tabs = $('#menu-filter li a');
 					var firstTab = tabs.first();
-					
-					try {
-  firstTab.click();
-}
-catch(err) {
-  console.log(err.message + "kk");
-}
-					console.log("Clicked");
+					firstTab.click();
+					console.log(firstTab);
 				}
 			}
 		}
