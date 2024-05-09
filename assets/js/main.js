@@ -24,11 +24,7 @@ jQuery(document).ready(function(){
 			let i=0;     
 			for(let el of arr){
 				img[i++].setAttribute('src', el);
-				if (el == arr.slice(-1)){
-					var tabs = $('#menu-filter li a');
-					var firstTab = tabs.first();
-					firstTab.click();
-				}
+				
 			}
 		}
 
