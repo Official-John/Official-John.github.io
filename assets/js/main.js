@@ -28,6 +28,7 @@ jQuery(document).ready(function(){
 					var tabs = $('#menu-filter li a');
 					var firstTab = tabs.first();
 					firstTab.click();
+					console.log("Clicked");
 				}
 			}
 		}
