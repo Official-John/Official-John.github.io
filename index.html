@@ -4076,11 +4076,9 @@
                     <div class="contact-area">
                       <div class="contact-left mt-20">
                         <form
-                          onSubmit="disablebut()"
+                          onsubmit="disablebut()"
                           class="contact-form"
                           id="contact-form"
-                          action="https://jasayoenergy.com.ng/contact-form-handler.php"
-                          method="POST"
                         >
                           <div class="row g-4">
                             <div
@@ -4324,7 +4322,7 @@
           submitBtn.disabled = true;
           submitBtn.innerText = "Sending...";
 
-          fetch(form.action, {
+          fetch("https://jasayoenergy.com.ng/contact-form-handler.php", {
             method: "POST",
             body: formData,
           })
