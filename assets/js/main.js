@@ -113,7 +113,7 @@ jQuery(document).ready(function(){
 			var e = $(".work-filter"),
 				a = $("#menu-filter");
 			e.isotope({
-				filter: "web",
+				filter: ".web",
 				layoutMode: "masonry",
 				animationOptions: {
 					duration: 750,
