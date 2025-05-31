@@ -1,7 +1,6 @@
 jQuery(document).ready(function(){ 
 
 	"use strict";
-		img[i++].setAttribute('loading', 'lazy');
 		// Preloader
 		$(window).on("load", function () {
 			$('.lds-ellipsis').fadeOut(); // will first fade out the loading animation
