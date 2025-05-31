@@ -14,6 +14,9 @@ jQuery(document).ready(function(){
 		      var tabs = $('#menu-filter li a');
 			var firstTab = tabs.first();
 			firstTab.click();
+			$('.work-filter').isotope({
+		             filter: '.web'
+		         });
 			//console.log("Done2");
 		    }, 10000);
 
@@ -28,6 +31,9 @@ jQuery(document).ready(function(){
 					var tabs = $('#menu-filter li a');
 					var firstTab = tabs.first();
 					firstTab.click();
+					$('.work-filter').isotope({
+				             filter: '.web'
+				         });
 					//console.log("Done");
 				}
 			}
