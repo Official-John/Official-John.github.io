@@ -15,7 +15,12 @@ jQuery(document).ready(function(){
 			var firstTab = tabs.first();
 			firstTab.click();
 			$('.work-filter').isotope({
-		             filter: '.web'
+		             filter: '.web',
+			     animationOptions: {
+				animationDuration: 750,
+				easing: "linear",
+				queue: !1
+			    }
 		         });
 			//console.log("Done2");
 		    }, 10000);
@@ -32,9 +37,14 @@ jQuery(document).ready(function(){
 					var firstTab = tabs.first();
 					firstTab.click();
 					$('.work-filter').isotope({
-				             filter: '.web'
-				         });
-					//console.log("Done");
+					     filter: '.web',
+					     animationOptions: {
+						animationDuration: 750,
+						easing: "linear",
+						queue: !1
+					    }
+					 });
+					console.log("Done loading...");
 				}
 			}
 		}
