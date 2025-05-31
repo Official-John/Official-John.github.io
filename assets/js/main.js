@@ -31,8 +31,19 @@ jQuery(document).ready(function(){
 					loadedCount++;
 					if (loadedCount === totalImages) {
 						console.log("All images loaded");
+		
 						let firstTab = $('#menu-filter li a').first();
-						firstTab.click();
+						firstTab.trigger('click'); // trigger instead of click()
+		
+						var e = $(".work-filter");
+						e.isotope({
+							filter: "web",
+							layoutMode: "masonry",
+							animationOptions: {
+								duration: 750,
+								easing: "linear"
+							}
+						});
 					}
 				}
 			}
