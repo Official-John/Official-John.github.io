@@ -21,30 +21,14 @@ jQuery(document).ready(function(){
 			let arr = ['img/portfolio/aea (1).png', 'img/portfolio/aea (2).png', 'img/portfolio/aea (3).png', 'img/portfolio/aea (4).png', 'img/portfolio/aea (5).png', 'img/portfolio/aea (6).png', 'img/portfolio/app (1).jpg', 'img/portfolio/app (2).jpg', 'img/portfolio/app (3).jpg', 'img/portfolio/app (4).jpg', 'img/portfolio/app (5).jpg', 'img/portfolio/app (6).jpg', 'img/portfolio/triplyte (1).jpg', 'img/portfolio/triplyte (2).jpg', 'img/portfolio/triplyte (3).jpg', 'img/portfolio/triplyte (4).jpg', 'img/portfolio/triplyte (5).jpg', 'img/portfolio/triplyte (6).jpg', 'img/portfolio/myweb (1).png', 'img/portfolio/myweb (2).png', 'img/portfolio/myweb (3).png', 'img/portfolio/social (1).png', 'img/portfolio/social (2).png', 'img/portfolio/social (3).png', 'img/portfolio/social (4).png', 'img/portfolio/ai (1).jpg', 'img/portfolio/ai (2).jpg', 'img/portfolio/ai (3).jpg', 'img/portfolio/ai (4).jpg', 'img/portfolio/ai (5).jpg', 'img/portfolio/ai (6).jpg', 'img/portfolio/ai (7).jpg', 'img/portfolio/ai (8).jpg', 'img/portfolio/ai (9).jpg', 'img/portfolio/ai (10).jpg', 'img/portfolio/ai (11).jpg', 'img/portfolio/ai (12).jpg', 'img/portfolio/ai (13).jpg', 'img/portfolio/ai (14).jpg', 'img/portfolio/ai (15).jpg', 'img/portfolio/ai (16).jpg', 'img/portfolio/ai (17).jpg', 'img/portfolio/bio (1).png', 'img/portfolio/bio (2).png', 'img/portfolio/bio (3).png', 'img/portfolio/bio (4).png', 'img/portfolio/bio (5).png', 'img/portfolio/bio (6).png', 'img/portfolio/bio (7).png', 'img/portfolio/bio (8).png', 'img/portfolio/bio (9).png', 'img/portfolio/ecom (1).png', 'img/portfolio/ecom (2).png', 'img/portfolio/ecom (3).png', 'img/portfolio/ecom (4).png', 'img/portfolio/ecom (5).png', 'img/portfolio/ABAQUS.png', 'img/portfolio/BILLRO (1).png', 'img/portfolio/BILLRO (2).png', 'img/portfolio/BILLRO (3).png', 'img/portfolio/BILLRO (4).png', 'img/portfolio/BILLRO (5).png', 'img/portfolio/BILLRO (6).png', 'img/portfolio/BILLRO (7).png', 'img/portfolio/BILLRO (8).png', 'img/portfolio/CATIA.png', 'img/portfolio/CHATBOT (1).png', 'img/portfolio/CHATBOT (2).png', 'img/portfolio/CHATBOT (3).png', 'img/portfolio/CHATBOT (4).png', 'img/portfolio/CHATBOT (5).png', 'img/portfolio/HILLTOP (1).png', 'img/portfolio/HILLTOP (2).png', 'img/portfolio/HILLTOP (3).png', 'img/portfolio/HILLTOP (4).png', 'img/portfolio/HILLTOP (5).png', 'img/portfolio/HILLTOP (6).png', 'img/portfolio/HILLTOP (7).png', 'img/portfolio/HILLTOP (8).png', 'img/portfolio/HILLTOP (9).png', 'img/portfolio/HOSPINOX (1).png', 'img/portfolio/HOSPINOX (2).png', 'img/portfolio/HOSPINOX (3).png', 'img/portfolio/HOSPINOX (4).png', 'img/portfolio/HOSPINOX (5).png', 'img/portfolio/HOSPINOX (6).png', 'img/portfolio/HOSPINOX (7).png', 'img/portfolio/HOSPINOX (8).png', 'img/portfolio/HOSPINOX (9).png', 'img/portfolio/MATLAB (1).png', 'img/portfolio/MATLAB (2).png', 'img/portfolio/SIMULINK.png', 'img/portfolio/TRAVSIFY (1).jpg', 'img/portfolio/TRAVSIFY (1).png', 'img/portfolio/TRAVSIFY (2).jpg', 'img/portfolio/TRAVSIFY (2).png', 'img/portfolio/TRAVSIFY (3).jpg', 'img/portfolio/TRAVSIFY (4).jpg', 'img/portfolio/TRAVSIFY (5).jpg', 'img/portfolio/TRAVSIFY (6).jpg', 'img/portfolio/TRAVSIFY (7).jpg', 'img/portfolio/TRAVSIFY (8).jpg', 'img/portfolio/TRAVSIFYB2B (1).png', 'img/portfolio/TRAVSIFYB2B (2).png', 'img/portfolio/TRAVSIFYB2B (3).png', 'img/portfolio/TRAVSIFYB2B (4).png', 'img/portfolio/TRAVSIFYB2B (5).png', 'img/portfolio/TRAVSIFYB2B (6).png', 'img/portfolio/VSI (1).png', 'img/portfolio/VSI (2).png', 'img/portfolio/VSI (3).png', 'img/portfolio/VSI (4).png', 'img/portfolio/VSI (5).png', 'img/portfolio/VSI (6).png'];
 			let div = document.getElementById("portfolio");
 			let img = div.getElementsByTagName('img');
-			let loadedCount = 0;
-			let totalImages = arr.length;
-		
-			for (let i = 0; i < arr.length; i++) {
-				img[i].setAttribute('loading', 'lazy');
-				img[i].src = arr[i];
-				img[i].onload = img[i].onerror = function () {
-					loadedCount++;
-					if (loadedCount === totalImages) {
-						console.log("All images loaded");
-		
-						let firstTab = $('#menu-filter li a').first();
-						firstTab.trigger('click'); // trigger instead of click()
-		
-						var e = $(".work-filter");
-						e.isotope({
-							filter: "web",
-							layoutMode: "masonry",
-							animationOptions: {
-								duration: 750,
-								easing: "linear"
-							}
-						});
-					}
+			let i=0;     
+			for(let el of arr){
+				img[i++].setAttribute('src', el);
+				if (el == arr.slice(-1)){
+					var tabs = $('#menu-filter li a');
+					var firstTab = tabs.first();
+					firstTab.click();
+					//console.log("Done");
 				}
 			}
 		}
@@ -129,7 +113,7 @@ jQuery(document).ready(function(){
 			var e = $(".work-filter"),
 				a = $("#menu-filter");
 			e.isotope({
-				filter: "*",
+				filter: "web",
 				layoutMode: "masonry",
 				animationOptions: {
 					duration: 750,
